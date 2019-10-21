@@ -1,0 +1,122 @@
+{% load cms_tags menu_tags sekizai_tags %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mysite</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/modern-business.css'%}" rel="stylesheet">
+    <!--     <link href="{% static 'copy-3/css/modern-business.css'%}" rel="stylesheet">-->
+    {% render_block "css" %}
+
+    <!-- django CMS toolbar adjustment -->
+    {% if request.toolbar %}
+    <style>
+    .cms-toolbar-expanded .navbar.fixed-top {
+        margin-top:2.2vw;
+    }
+
+
+
+
+    </style>
+    {% endif %}
+</head>
+
+<body>
+{% cms_toolbar %}
+<!-- Navigation -->
+<header class="navbar  navbar-expand-lg bg-light fixed-top">
+
+    <div class="col-lg-1 col-md-2 col-sm-2" >
+
+        {% static_placeholder "LOGO" or %}
+
+        <img class="responsive" align="center"  src="{% static 'img/no-image1.jpg'%}" style="color:red;width:4vw;height:4vw;"
+             alt="no-image to load" style="">
+        {%endstatic_placeholder%}
+    </div>
+    <!-- Navbar text_logo here -->
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        {% static_placeholder 'TextForLogo' or %}
+        <h3 class="text-secondary" style="font-size:1.56vw;"> The Hellow World <br>
+            and  Tests</h3>
+        {%endstatic_placeholder%}
+    </div>
+
+
+    <div class="col-lg-6 col-md-6 col-sm-6 mx-3vw">
+        <button al class="navbar-toggler navbar-toggler-right"  type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <i class="navbar-toggler-icon"></i>
+         </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto" >
+                <li class="nav-item">
+                    {% show_menu 0 100 100 100 "includes/menu.html" %}
+
+
+                        <ul>
+                            {% show_menu_below_id "meta" %}
+                        </ul>
+                         <ul>
+                           {% show_sub_menu %}
+                        </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row" style="" >
+            {% show_breadcrumb 0 %}
+        </div>
+
+
+    </div>
+
+</header>
+<!-- Page Header -->
+<header>
+    {% placeholder slide or%}
+
+    {%endplaceholder%}
+</header>
+
+<!-- Page Content -->
+<div class="container">
+    {% block content %}{% endblock content %}
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        {% static_placeholder "footer"%}
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<!--<script src="{% static 'copy-3/vendor/jquery/jquery.min.js' %}"></script>-->
+<!--<script src="{% static 'copy-3/vendor/bootstrap/js/bootstrap.bundle.min.js '%}"></script>-->
+
+<!-- Custom scripts for this template -->
+<script src="{% static 'copy-3/js/clean-blog.min.js' %}"></script>
+{% render_block "js" %}
+</body>
+
+</html>

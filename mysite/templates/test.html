@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+    <div class="main-header">
+        <!--<div class="container">-->
+        <div class="row">
+
+            <div class="col-lg-1 col-md-1 col-sm-2 clearfix header-logo-text">
+                <h1 class="site-title tagline logo-img">
+            {% placeholder LOGO or %}
+
+            <img src="{% static 'static/img/no-image.jpg'%}" style="color:red;width:80px;height;80px"
+                 alt="no-image to load" style="">
+
+            {% endplaceholder %}
+
+                </h1>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-8 clearfix header-logo-text" style="padding-left: 7px">
+                <div class="header_text_area">
+            {% placeholder TextForLogo or %}
+
+            {% endplaceholder %}
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 clearfix social_medias">
+                <div class="top-header">
+                    <div class="head-social ">
+                        <div class="sol_shareicondiv small circle">
+                            <a class="sol_shareicon facebook" href="#"
+                               target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="sol_shareicon twitter" href="#" target="_blank"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="sol_shareicon linkedin" href="#"
+                               target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="sol_shareicon youtube" href=#
+                               target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    {% show_menu 0 100 100 100 "includes/menu.html" %}
+                </li>
+            </ul>
+        </div>
+</div>
+            </div>
+        </div><!-- .row -->
+        <!--</div> .container -->
+    </div>
+</header>
+
+
+</body>
+</html>
+
+
+
